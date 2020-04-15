@@ -21,6 +21,7 @@ Die Schnittstelle des Partner-Middleware Service basiert auf der Schnittstelle v
 },
 ```
 Zudem wurde die Schnittstelle um die Kommentar Funktion und die Dokumente Funktion von Europace (https://developer.europace.de/api/kex-vorgang-update-api/) ergänzt.
+
 **Kommentar Wert**
 ```
 "kommentare": ["hallo ECON"]
