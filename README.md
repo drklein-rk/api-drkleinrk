@@ -10,7 +10,7 @@ Der Partner-Middleware Service dient zum Anlegen eines neuen Partners im Partner
 
 Die Schnittstelle des Partner-Middleware Service basiert auf der Schnittstelle von Europace, um einen Vorgang anzulegen (https://developer.europace.de/api/kex-vorgang-import-api/) und wurde um fehlenden Werte ergänzt.
 
-Tippgeber Werte
+**Tippgeber Werte**
 ```
 "Tippgeber": {
   "vorname": "Sparkassen Max",
@@ -21,18 +21,18 @@ Tippgeber Werte
 },
 ```
 Zudem wurde die Schnittstelle um die Kommentar Funktion und die Dokumente Funktion von Europace (https://developer.europace.de/api/kex-vorgang-update-api/) ergänzt.
-Kommentar Wert
+**Kommentar Wert**
 ```
 "kommentare": ["hallo ECON"]
 ```
-Dokumente Wert
+**Dokumente Wert**
 ```
 "dokumente": [{"filename": "Example.pdf", "base64Content": "JVBERXXX"}]
 ```
 
 ## Anlegen eines neuen Vorgangs
 
-Neue Vorgänge werden per HTTP POST angelegt werden. Die URL für das Anlegen von einen Vorgang im Echtgeschäft ist:
+Neue Vorgänge werden per HTTP POST angelegt. Die URL für das Anlegen von einen Vorgang im Echtgeschäft ist:
 https://partnermiddleware.drkleinservice.de/vorgang?environment=PRODUCTION
 
 Die URL für das Anlegen von Vorgängen in der Testumgebung ist:
