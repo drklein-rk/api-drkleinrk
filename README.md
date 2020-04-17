@@ -81,7 +81,7 @@ http://partnermiddleware.drkleinservice.de/vorgang
     "email": "sparkassenmax.mustermann@spkrnn.de"
   },
   "kommentare": ["hallo ECON"],
-  "dokumente": [{"filename": "Example.pdf", "base64Content": "JVBERXXX"}]
+  "dokumente": [{"filename": "Example.pdf", "base64Content": "JVBERXXX"},{"filename": "Example2.pdf", "base64Content": "JVBERXXX"}]
 }
 ```
 Der Bereich *kundenbetreuer* und *antragsteller1* ist die gleiche API wie die von Europace. Neu ist der *tippgeber* Bereich, die *kommentare* und die *dokumente*.
