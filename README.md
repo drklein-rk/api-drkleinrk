@@ -1,7 +1,5 @@
 # partner-middleware-api
 
-Schnittstellenbeschreibung Dr. Klein RK GmbH für den Partner-Middleware Service
-
 ## Beschreibung
 
 Der Partner-Middleware Service dient zum Anlegen eines neuen Partners im Partnermanagement von Europace, wenn dieser noch nicht existiert. Mithilfe der PartnerId vom neuen oder bereits existierenden Partner wird ein Vorgang in Kreditsmart angelegt.
