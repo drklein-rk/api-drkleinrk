@@ -6,7 +6,8 @@ Der Partner-Middleware Service dient zum Anlegen eines neuen Partners im Partner
 
 ## Schnittstelle
 
-Die Schnittstelle des Partner-Middleware Service basiert auf der Schnittstelle von Europace, um einen Vorgang anzulegen (https://developer.europace.de/api/kex-vorgang-import-api/) und wurde um fehlenden Werte ergänzt.
+Die Schnittstelle des Partner-Middleware Service basiert auf der Schnittstelle von Europace, um einen Vorgang (https://developer.europace.de/api/kex-vorgang-import-api/) anzulegen und wurde um fehlenden Werte ergänzt.
+Zusätzliche bietet die Schnittstelle den Import von Dokumenten an (https://developer.europace.de/api/kex-vorgang-update-api/).
 
 **Tippgeber Werte**
 ```
@@ -23,10 +24,6 @@ Zudem wurde die Schnittstelle um die Kommentar Funktion und die Dokumente Funkti
 **Kommentar Wert**
 ```
 "kommentare": ["hallo ECON"]
-```
-**Dokumente Wert**
-```
-"dokumente": [{"filename": "Example.pdf", "base64Content": "JVBERXXX"}]
 ```
 
 ## Anlegen eines neuen Vorgangs
@@ -59,7 +56,7 @@ Request-Header Name: content-type
 Request Header Value: application/json;charset=utf-8
 
 POST
-http://partnermiddleware.drkleinservice.de/vorgang
+https://partnermiddleware.drkleinservice.de/vorgang
 
 {
   "kundenbetreuer": {
@@ -78,11 +75,45 @@ http://partnermiddleware.drkleinservice.de/vorgang
     "telefon": "0612-298-xxxx",
     "email": "sparkassenmax.mustermann@spkrnn.de"
   },
-  "kommentare": ["hallo ECON"],
-  "dokumente": [{"filename": "Example.pdf", "base64Content": "JVBERXXX"},
-                {"filename": "Example2.pdf", "base64Content": "JVBERXXX"}]
+  "kommentare": ["hallo ECON"]
 }
 ```
-Der Bereich *kundenbetreuer* und *antragsteller1* ist die gleiche API wie die von Europace. Neu ist der *tippgeber* Bereich, die *kommentare* und die *dokumente*.
+Der Bereich *kundenbetreuer* und *antragsteller1* ist die gleiche API wie die von Europace. Neu ist der *tippgeber* Bereich, die *kommentare*.
 
-Der *kundenbetreuer* und der *antragsteller1* werden über die Kreditsmart KEX-Import API importiert, die *tippgeber* Daten werden für die Partnererstellung im Partnermanagment verwendet und die *kommentare*, um in der Ereignislasche die Checkboxen AGB und Datenschutzbestimmungen, sowie weitere Kommentare zu importieren. Die Dokumente um in Europace Vorgang Dokumente zu importieren.
+Der *kundenbetreuer* und der *antragsteller1* werden über die Kreditsmart KEX-Import API importiert, die *tippgeber* Daten werden für die Partnererstellung im Partnermanagment verwendet und die *kommentare*, um in der Ereignislasche die Checkboxen AGB und Datenschutzbestimmungen, sowie weitere Kommentare zu importieren.
+
+## Hinzufügen von Dokumenten
+
+Diese Schnittstelle ermöglicht das Importieren von Dokumenten zu einem bestehenden Vorgang.
+Dokumente werden per HTTP POST importiert. Die URL für das importieren von Dokumenten ist:
+https://partnermiddleware.drkleinservice.de/vorgang/{vorgangsnummer}/dokument
+
+Die Daten werden als JSON Dokument im Body des POST Requests übermittelt. Ein erfolgreicher Aufruf resultiert in einer Response mit dem HTTP Statuscode 201 CREATED.
+
+### Authentifizierung
+
+Die Authentifizierung erfolgt über ein API JWT Token.
+
+```
+Request-Header Name: X-Authentication
+Request Header Value: (jwt wird von Dr. Klein Support ausgestellt)
+```
+401, wenn die Authentifizierung fehlschlägt.
+
+### Beispiel
+
+**Dokumente Wert**
+```
+Request-Header Name: X-Authentication
+Request Header Value: xxx
+
+Request-Header Name: content-type
+Request Header Value: application/json;charset=utf-8
+
+POST
+https://partnermiddleware.drkleinservice.de/vorgang/{vorgangsnummer}/dokument
+
+{
+"dokumente": [{"filename": "Example.pdf", "base64Content": "JVBERXXX"}]
+}
+```
