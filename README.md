@@ -114,6 +114,7 @@ POST
 https://partnermiddleware.drkleinservice.de/vorgang/{vorgangsnummer}/dokument
 
 {
-"dokumente": [{"filename": "Example.pdf", "base64Content": "JVBERXXX"}]
+  "filename": "Example.pdf", 
+  "base64Content": "JVBERXXX"
 }
 ```
