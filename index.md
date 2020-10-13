@@ -15,15 +15,12 @@ buttons:
       url: 'https://github.com/drklein-rk'
       external_url: true
 
-# Lead API
+# Grid navigation
 grid_navigation:
     - title: Lead API
       excerpt: Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
       cta: Read more
       url: 'lead.md'
-      
-# Middleware API
-grid_navigation:
     - title: Middleware API
       excerpt: Diese API dient zum Anlegen eines Tippgeber im Partnermangement von Europace.
       cta: Read more
