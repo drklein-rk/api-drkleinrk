@@ -1,10 +1,10 @@
 # Theme settings
 doks:
     baseurl:
-    color_theme: # Available themes: blue (default), green, purple, red and yellow
+    color_theme: blue
     header:
         logo:
-            text: Project name
+            text: Dr. Klein RK
             image:
         nav:
             - item_name: Item 1
@@ -16,17 +16,11 @@ doks:
     footer:
         content:
             logo:
-                text: Project name
+                text: Dr. Klein RK API
                 image:
-            copyright: Copyright &copy; 2017. - Project name <br>All rights reserved.
+            copyright: Copyright &copy; 2020. - Project name <br>All rights reserved.
         social_list:
-            - network_name: facebook
-              profile_url: '#'
             - network_name: twitter
-              profile_url: '#'
-            - network_name: instagram
-              profile_url: '#'
-            - network_name: youtube
               profile_url: '#'
     google_analytics:
         tracking_code: # Add your Google Analytics tracking code to activate Google Analytics
