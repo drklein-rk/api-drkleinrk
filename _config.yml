@@ -18,7 +18,7 @@ doks:
             logo:
                 text: Dr. Klein RK
                 image:
-            copyright: Copyright &copy; 2020. - Project name <br>All rights reserved.
+            copyright: Copyright &copy; 2020<br>All rights reserved.
         social_list:
             - network_name: twitter
               profile_url: '#'
