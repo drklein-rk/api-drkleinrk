@@ -16,7 +16,7 @@ doks:
     footer:
         content:
             logo:
-                text: Dr. Klein RK API
+                text: Dr. Klein RK
                 image:
             copyright: Copyright &copy; 2020. - Project name <br>All rights reserved.
         social_list:
