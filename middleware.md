@@ -3,6 +3,7 @@
 layout: page
 keywords:
 comments: false
+permalink: /middleware/
 
 # Hero section
 title: Page title
