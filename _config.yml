@@ -1,6 +1,6 @@
 # Theme settings
 doks:
-    baseurl:
+    baseurl: /api-drkleinrk
     color_theme: blue
     header:
         logo:
