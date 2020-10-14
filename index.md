@@ -27,5 +27,5 @@ grid_navigation:
     - title: Test
       excerpt: das ist eine Test Verlinkung
       cta: Read more
-      url: 'test.md'
+      url: 'test'
 ---
