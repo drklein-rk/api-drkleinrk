@@ -1,7 +1,7 @@
 # Theme settings
 doks:
     baseurl:
-    color_theme: blue
+    color_theme: red
     header:
         logo:
             text: Dr. Klein Ratenkredit
@@ -18,7 +18,7 @@ doks:
             logo:
                 text: Dr. Klein Ratenkredit
                 image:
-            copyright: Copyright &copy; 2010 - Dr. Klein Ratenkredit GmbH<br>All rights reserved.
+            copyright: Copyright &copy; 2020 - Dr. Klein Ratenkredit GmbH<br>All rights reserved.
         social_list:
             - network_name: twitter
               profile_url: '#'
