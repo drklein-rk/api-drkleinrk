@@ -24,8 +24,8 @@ author:
 
 # Grid navigation
 grid_navigation:
-    - title: Grid navigation
-      excerpt: Section description
+    - title: Test
+      excerpt: das ist eine Test Verlinkung
       cta: Read more
-      url: '#'
+      url: 'test.md'
 ---
