@@ -20,9 +20,9 @@ grid_navigation:
     - title: Lead API
       excerpt: Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
       cta: Read more
-      baseurl: 'dafault.md'
+      url: 'dafault.md'
     - title: Middleware API
       excerpt: Diese API dient zum Anlegen eines Tippgeber im Partnermangement von Europace.
       cta: Read more
-      baseurl: 'middleware.md'
+      url: '{{site.baseurk}}/middleware.md'
 ---
