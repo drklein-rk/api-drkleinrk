@@ -8,7 +8,7 @@ doks:
             image:
         nav:
             - item_name: API Dokumentation
-              item_url: '#'
+              item_url: 'https://developer.drkleinservice.de/'
             - item_name: FAQ
               item_url: '#'
             - item_name: Nutzungsbedingungen
