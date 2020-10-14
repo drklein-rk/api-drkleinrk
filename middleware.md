@@ -5,8 +5,8 @@ keywords:
 comments: false
 
 # Hero section
-title: Page title
-description: Page description
+title: Partner Middleware API
+description: API zum Anlegen eines neuen Partners bei Europace.
 
 # Micro navigation
 micro_nav: true
@@ -20,8 +20,6 @@ page_nav:
         content: Next page
         url: '#'
 ---
-# partner-middleware-api
-
 ## Beschreibung
 
 Der Partner-Middleware Service dient zum Anlegen eines neuen Partners im Partnermanagement von Europace, wenn dieser noch nicht existiert. Mithilfe der PartnerId vom neuen oder bereits existierenden Partner wird ein Vorgang in Kreditsmart angelegt.
