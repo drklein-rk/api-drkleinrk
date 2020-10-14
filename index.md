@@ -24,5 +24,5 @@ grid_navigation:
     - title: Middleware API
       excerpt: Diese API dient zum Anlegen eines Tippgeber im Partnermangement von Europace.
       cta: Read more
-      url: '{{site.baseurk}}/middleware.md'
+      url: '{{site.baseurl}}/middleware.md'
 ---
