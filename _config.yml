@@ -40,3 +40,4 @@ permalink: /:title/
 
 include:
   - middleware.md
+  - default.md
