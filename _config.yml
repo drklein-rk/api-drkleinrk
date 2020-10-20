@@ -1,7 +1,7 @@
 # Theme settings
 doks:
     baseurl:
-    color_theme: blue
+    color_theme: red
     header:
         logo:
             text: Dr. Klein Ratenkredit
