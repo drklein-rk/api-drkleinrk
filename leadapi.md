@@ -7,6 +7,7 @@ comments: false
 # Hero section
 title: Lead Import API
 
+---
 ## Beschreibung
 Die Lead API dient zum Überleiten von Partner-, Tippgeber und Vorgangsdaten.
 
