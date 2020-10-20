@@ -48,31 +48,31 @@ Request Header Value: (jwt wird von Dr. Klein Support bereitgestellt)
 
 | Wert | Datentyp | Beschreibung |
 | :--- | :------- | :----------- |
-| vertriebsschlüssel | String | Der Vertriebsschlüssel des Partners.
+| vertriebsschlüssel | String | Der Vertriebsschlüssel des Partners. |
 
 **Custom Daten**
 
 | Wert | Datentyp | Beschreibung |
 | :--- | :------- | :----------- |
-| key | String | Der name vom `key`.
-| value | various types| Der `key` kann den Datentyp `boolean`, `integer`, `date`, `string` haben.
+| key | String | Der name vom `key`. |
+| value | various types| Der `key` kann den Datentyp `boolean`, `integer`, `date`, `string` haben. |
 
 **Tippgeber Daten**
 
 | Wert | Datentyp | Beschreibung |
 | :--- | :------- | :----------- |
-| externeMitarbeiternummer | String | Die Mitarbeiternummer des Tippgebers.
-| vorname | String | Der Vorname des Tippgebers.
-| nachname | String | Der Nachname des Tippgebers.
-| anrede | String | Die Anrede des Tippgebers. Werte sind HERR oder FRAU.
-| telefon | String | Die Telefonnummer des Tippgebers.
-| email | String | Die Email des Tippgebers.
+| externeMitarbeiternummer | String | Die Mitarbeiternummer des Tippgebers. |
+| vorname | String | Der Vorname des Tippgebers. |
+| nachname | String | Der Nachname des Tippgebers. |
+| anrede | String | Die Anrede des Tippgebers. Werte sind HERR oder FRAU. |
+| telefon | String | Die Telefonnummer des Tippgebers. |
+| email | String | Die Email des Tippgebers. |
 
 **Kommentare**
 
- Wert | Datentyp | Beschreibung |
+| Wert | Datentyp | Beschreibung |
 | :--- | :------- | :----------- |
-| kommentare | [String] | Kommentare zum Lead.
+| kommentare | [String] | Kommentare zum Lead. |
 
 ### Beispiel
 
@@ -123,8 +123,8 @@ Die Daten vom `kundenbetreuer` und vom `antragsteller1` werden
 über die von Europace bereitgestellte API [KEX Vorgang Import API](`https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/`) an Kreditsmart übergeben. 
 Die `tippgeber` Daten werden für die Partnererstellung im Partnermanagment verwendet und die `kommentare`, um in der Ereignislasche von Kreditsmart den Finanzierungsberater weitere Informationen anzuzeigen.
 
- Begriff | Beschreibung |
-| :--- | :------- |
-| Kreditsmart | Frontend für die Kreditberatung.
-| Kreditsmart-Ereignislasche| Forntend Bereich in dem Kommentare angezeigt werden.
-| Partnermanagement | Benutzerverwaltung von Europace.
+| Begriff | Beschreibung |
+| :------ | :----------- |
+| Kreditsmart | Frontend für die Kreditberatung. |
+| Kreditsmart-Ereignislasche| Forntend Bereich in dem Kommentare angezeigt werden. |
+| Partnermanagement | Benutzerverwaltung von Europace. |
