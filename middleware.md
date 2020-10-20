@@ -32,11 +32,11 @@ Zusätzliche bietet die Schnittstelle den Import von Dokumenten an `https://deve
 **Tippgeber Werte**
 ```
 "Tippgeber": {
-  "vorname": "Max",
-  "nachname": "Mustermann",
+  "vorname": "Sparkassen Max",
+  "nachname": "Sparkassen Mustermann",
   "anrede": "Herr",
   "telefon": "0612-298-xxxx",
-  "email": "max.mustermann@email.de"
+  "email": "sparkassenmax.mustermann@spkrnn.de"
 },
 ```
 Zudem wurde die Schnittstelle um die Kommentar Funktion und die Dokumente Funktion von Europace `https://developer.europace.de/api/kex-vorgang-update-api/` ergänzt.
@@ -93,7 +93,7 @@ https://partnermiddleware.drkleinservice.de/vorgang
     "nachname": "Mustermann",
     "anrede": "HERR",
     "telefon": "0612-298-xxxx",
-    "email": "max.mustermann@spkrnn.de"
+    "email": "sparkassenmax.mustermann@spkrnn.de"
   },
   "kommentare": ["hallo ECON"]
 }
