@@ -127,22 +127,25 @@ https://api.drkleinservice.de/vorgang
 **Response**
 ```json
 {
-  "vorgang_uuid": "6e8627d4-1512-11eb-adc1-0242ac120002",
-  "crm_kennung": "DK-AB1267",
+  "vorgangUuid": "6e8627d4-1512-11eb-adc1-0242ac120002",
+  "crmKennung": "DK-AB1267",
   "messages": []
 }
 ```
 
 | Wert | Datentyp | Beschreibung |
 | :--- | :------- | :----------- |
-| vorgang_uuid | [String] | Id zum importierten Vorgang. |
-| crm_kennung | [String] | Kennung für den Vorgang im Prozess. |
+| vorgangUuid | [String] | Uuid zum importierten Vorgang. |
+| crmKennung | [String] | Kennung für den Vorgang im Prozess. |
 
 Der Bereich `kundenbetreuer` und `antragsteller1` ist genauso wie die [API von Europace](`https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/`)  aufgebaut. Neu ist der `tippgeber`, `data` und `kommentare` Bereich.
 
 Die Daten vom `kundenbetreuer` und vom `antragsteller1` werden 
 über die von Europace bereitgestellte API [KEX Vorgang Import API](`https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/`) an Kreditsmart übergeben. 
 Die `tippgeber` Daten werden für die Partnererstellung im Partnermanagment verwendet und die `kommentare`, um in der Ereignislasche von Kreditsmart den Finanzierungsberater weitere Informationen anzuzeigen.
+
+
+### Begfriffsklärung
 
 | Begriff | Beschreibung |
 | :------ | :----------- |
