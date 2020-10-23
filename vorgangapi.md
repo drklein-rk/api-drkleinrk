@@ -5,7 +5,7 @@ keywords:
 comments: false
 
 # Hero section
-title: Lead Import API
+title: Vorgang Import API
 description:
 
 # Micro navigation
@@ -19,15 +19,15 @@ Die Lead API dient zum Überleiten von Partner-, Tippgeber und Vorgangsdaten.
 
 ### Lead importieren
 
-Die Schnittstelle zum Lead import basiert auf den Import von Daten der [Schnittstelle von Europace](`https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/`).
+Die Schnittstelle zum Vorgang import basiert auf den Import von Daten der [Schnittstelle von Europace](`https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/`).
 Das Format und die Struktur wurde für die Vorgangsdaten übernommen und um Partner-, Tippgeber- und Customdaten, sowie individuellen Kommentaren ergänzt.
 
-Neue Leads werden per `HTTP POST` angelegt. Die URL für das Anlegen von einen Lead im Echtgeschäft ist:
+Neue Vorgang werden per `HTTP POST` angelegt. Die URL für das Anlegen von einen Lead im Echtgeschäft ist:
 
-`https://api.drkleinservice.de/lead?environment=PRODUCTION`
+`https://api.drkleinservice.de/vorgang?environment=PRODUCTION`
 
-Die URL für das Anlegen von Leads in der Testumgebung ist:
-`https://api.drkleinservice.de/lead`
+Die URL für das Anlegen von einen Vorgang in der Testumgebung ist:
+`https://api.drkleinservice.de/vorgang`
 
 Die Daten werden als JSON Dokument im Body des `POST` Requests übermittelt. 
 Ein erfolgreicher Aufruf resultiert in einer Response mit dem HTTP Statuscode `201 CREATED`.
@@ -76,6 +76,8 @@ Request Header Value: (jwt wird von Dr. Klein Support bereitgestellt)
 
 ### Beispiel
 
+**Request**
+
 ```text
 Request-Header Name: X-Authentication
 Request Header Value: xxx
@@ -117,6 +119,16 @@ https://api.drkleinservice.de/lead
   "kommentare": ["Max Mustermann hat 3 Kreditkarten."]
 }
 ```
+
+**Response**
+```json
+{
+  "vorgangsId": "6e8627d4-1512-11eb-adc1-0242ac120002",
+  "europaceVorgangsnummer":  "N94L7T",
+  "messages": []
+}
+```
+
 Der Bereich `kundenbetreuer` und `antragsteller1` ist genauso wie die [API von Europace](`https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/`)  aufgebaut. Neu ist der `tippgeber`, `data` und `kommentare` Bereich.
 
 Die Daten vom `kundenbetreuer` und vom `antragsteller1` werden 
@@ -126,5 +138,6 @@ Die `tippgeber` Daten werden für die Partnererstellung im Partnermanagment verw
 | Begriff | Beschreibung |
 | :------ | :----------- |
 | Kreditsmart | Frontend für die Kreditberatung. |
-| Kreditsmart-Ereignislasche| Forntend Bereich in dem Kommentare angezeigt werden. |
+| Kreditsmart-Ereignislasche | Frontend Bereich in dem Kommentare angezeigt werden. |
 | Partnermanagement | Benutzerverwaltung von Europace. |
+

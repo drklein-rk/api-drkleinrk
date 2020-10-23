@@ -7,12 +7,12 @@ keywords:
 title: Dr.Klein Ratenkredit GmbH
 description: API Dokumentation für unsere Partner. Bei Interesse können Sie uns gerne kontaktieren.
 buttons:
-    - content: Kontakt
-      url: 'mailto:info@drklein-rk.de'
-      external_url: true
     - icon: github
       content: GitHub Dokumentation
       url: 'https://github.com/drklein-rk'
+      external_url: true
+    - content: Kontakt
+      url: 'mailto:info@drklein-rk.de'
       external_url: true
       
 # Author box
@@ -24,12 +24,12 @@ author:
 
 # Grid navigation
 grid_navigation:
-    - title: Lead Import API
-      excerpt: Die Lead Import API dient zum Überleiten von Partner-, Tippgeber und Vorgangsdaten.
+    - title: Vorgang Import API
+      excerpt: Die Vorgang Import API dient zum Überleiten von Partner-, Tippgeber und Vorgangsdaten.
       cta: Weiterlesen
-      url: 'leadapi'
-    - title: Dokumente Import API
-      excerpt: Die Dokumente Import API ermöglicht das Importieren von maximal 10 MB großen Dokumenten zu einen bestehenden Lead.
+      url: 'vorgangapi'
+    - title: Dokument Import API
+      excerpt: Die Dokument Import API ermöglicht das Importieren von einen maximal 10 MB großen Dokument zu einen bestehenden Vorgang.
       cta: Weiterlesen
       url: 'dokumentapi'
 ---

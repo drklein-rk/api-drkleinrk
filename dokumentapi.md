@@ -13,17 +13,17 @@ micro_nav: true
 
 ---
 ## Beschreibung
-Die Dokumente Import API ermöglicht das Importieren von maximal 10 MB großen Dokumenten zu einen bestehenden Lead.
+Die Dokument Import API ermöglicht das Importieren von einen maximal 10 MB großen Dokument zu einen bestehenden Vorgang.
 
-## Dokumente Import API
+## Dokument Import API
 
-### Dokumente importieren
+### Dokument importieren
 
-Die Schnittstelle ermöglicht das Importieren von Dokumenten zu einem bestehenden Lead.
+Die Schnittstelle ermöglicht das Importieren von einen Dokument zu einem bestehenden Vorgang.
 
-Neue Dokumente werden per `HTTP POST` angelegt. Die URL für das Anlegen von Dokumenten ist:
+Ein neues Dokumente wird per `HTTP POST` angelegt. Die URL für das Anlegen von einen Dokument ist:
 
-`https://api.drkleinservice.de/lead/{leadId}/dokument`
+`https://api.drkleinservice.de/lead/{vorgangId}/dokument`
 
 Die Daten werden als JSON Dokument im Body des `POST` Requests übermittelt. 
 Ein erfolgreicher Aufruf resultiert in einer Response mit dem HTTP Statuscode `201 CREATED`.
@@ -48,7 +48,7 @@ maximale Dateigröße: `10MB`
 
 | Wert | Datentyp | Beschreibung |
 | :--- | :------- | :----------- |
-| filename | String | Der Dateiname.
+| filename | String | Der Name des Dokuments.
 | base64Content | String | base64 kodierte Datei.
 
 
