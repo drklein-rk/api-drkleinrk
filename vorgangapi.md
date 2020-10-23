@@ -12,10 +12,10 @@ description:
 micro_nav: true
 
 ---
-## Beschreibung
-Die Vorgang API dient zum Überleiten von Partner-, Tippgeber und Vorgangsdaten.
-
 ## Vorgang API
+
+### Beschreibung
+Die Vorgang API dient zum Überleiten von Partner-, Tippgeber und Vorgangsdaten.
 
 ### Vorgang importieren
 
@@ -44,20 +44,21 @@ Request Header Value: (jwt wird von Dr. Klein Support bereitgestellt)
 
 ### Vorgang
 
-**Partner Daten**
+**Partner Daten (partner)**
 
 | Wert | Datentyp | Beschreibung |
 | :--- | :------- | :----------- |
 | vertriebsschlüssel | String | Der Vertriebsschlüssel des Partners. |
+| kundenummer | String | Die Kundennummer des Kreditinteressenten. |
 
-**Custom Daten**
+**Custom Daten (custom)**
 
 | Wert | Datentyp | Beschreibung |
 | :--- | :------- | :----------- |
 | key | String | Der name vom `key`. |
 | value | various types| Der `key` kann den Datentyp `boolean`, `integer`, `date`, `string` haben. |
 
-**Tippgeber Daten**
+**Tippgeber Daten (tippgeber)**
 
 | Wert | Datentyp | Beschreibung |
 | :--- | :------- | :----------- |
@@ -68,7 +69,7 @@ Request Header Value: (jwt wird von Dr. Klein Support bereitgestellt)
 | telefon | String | Die Telefonnummer des Tippgebers. |
 | email | String | Die Email des Tippgebers. |
 
-**Kommentare**
+**Kommentare (kommentare)**
 
 | Wert | Datentyp | Beschreibung |
 | :--- | :------- | :----------- |
@@ -100,20 +101,23 @@ https://api.drkleinservice.de/vorgang
       "nachname": "Mustermann"
      }
   },
+  "partner": {
+    "vertriebsschluessel": "KOOPERATION_MIT_DRKLEIN",
+    "kundennummer": "143251ab",
+    "filialId": "123456"
+  },
   "tippgeber": {
+    "externeMitarbeiternummer": "078181726-121",
     "vorname": "Max",
     "nachname": "Mustermann",
     "anrede": "HERR",
     "telefon": "0612-298-xxxx",
     "email": "max.mustermann@partner.de"
   },
-  "data": [
+  "custom": [
     {
-      "key": "einwilligungUnterschrieben",
-      "value": true
-    },{
-      "key": "organisationsNummer",
-      "value": "123456-121"
+      "key": "telefonTermin",
+      "value": "2021-01-10 13:00:00"
     }
   ],
   "kommentare": ["Max Mustermann hat 3 Kreditkarten."]
@@ -123,11 +127,16 @@ https://api.drkleinservice.de/vorgang
 **Response**
 ```json
 {
-  "vorgangsId": "6e8627d4-1512-11eb-adc1-0242ac120002",
-  "europaceVorgangsnummer":  "N94L7T",
+  "vorgang_uuid": "6e8627d4-1512-11eb-adc1-0242ac120002",
+  "crm_kennung": "DK-AB1267",
   "messages": []
 }
 ```
+
+| Wert | Datentyp | Beschreibung |
+| :--- | :------- | :----------- |
+| vorgang_uuid | [String] | Id zum importierten Vorgang. |
+| crm_kennung | [String] | Kennung für den Vorgang im Prozess. |
 
 Der Bereich `kundenbetreuer` und `antragsteller1` ist genauso wie die [API von Europace](`https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/`)  aufgebaut. Neu ist der `tippgeber`, `data` und `kommentare` Bereich.
 
