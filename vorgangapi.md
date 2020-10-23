@@ -13,16 +13,16 @@ micro_nav: true
 
 ---
 ## Beschreibung
-Die Lead API dient zum Überleiten von Partner-, Tippgeber und Vorgangsdaten.
+Die Vorgang API dient zum Überleiten von Partner-, Tippgeber und Vorgangsdaten.
 
-## Lead API
+## Vorgang API
 
-### Lead importieren
+### Vorgang importieren
 
 Die Schnittstelle zum Vorgang import basiert auf den Import von Daten der [Schnittstelle von Europace](`https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/`).
 Das Format und die Struktur wurde für die Vorgangsdaten übernommen und um Partner-, Tippgeber- und Customdaten, sowie individuellen Kommentaren ergänzt.
 
-Neue Vorgang werden per `HTTP POST` angelegt. Die URL für das Anlegen von einen Lead im Echtgeschäft ist:
+Neue Vorgang werden per `HTTP POST` angelegt. Die URL für das Anlegen von einen Vorgang im Echtgeschäft ist:
 
 `https://api.drkleinservice.de/vorgang?environment=PRODUCTION`
 
@@ -42,7 +42,7 @@ Request Header Value: (jwt wird von Dr. Klein Support bereitgestellt)
 ```
 `401`, wenn die Authentifizierung fehlschlägt.
 
-### Lead
+### Vorgang
 
 **Partner Daten**
 
@@ -72,7 +72,7 @@ Request Header Value: (jwt wird von Dr. Klein Support bereitgestellt)
 
 | Wert | Datentyp | Beschreibung |
 | :--- | :------- | :----------- |
-| kommentare | [String] | Kommentare zum Lead. |
+| kommentare | [String] | Kommentare zum Vorgang. |
 
 ### Beispiel
 
@@ -86,7 +86,7 @@ Request-Header Name: content-type
 Request Header Value: application/json;charset=utf-8
 
 POST
-https://api.drkleinservice.de/lead
+https://api.drkleinservice.de/vorgang
 ```
 
 ```json

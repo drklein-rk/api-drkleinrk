@@ -23,7 +23,7 @@ Die Schnittstelle ermöglicht das Importieren von einen Dokument zu einem besteh
 
 Ein neues Dokumente wird per `HTTP POST` angelegt. Die URL für das Anlegen von einen Dokument ist:
 
-`https://api.drkleinservice.de/lead/{vorgangId}/dokument`
+`https://api.drkleinservice.de/vorgang/{vorgangId}/dokument`
 
 Die Daten werden als JSON Dokument im Body des `POST` Requests übermittelt. 
 Ein erfolgreicher Aufruf resultiert in einer Response mit dem HTTP Statuscode `201 CREATED`.
@@ -62,7 +62,7 @@ Request-Header Name: content-type
 Request Header Value: application/json;charset=utf-8
 
 POST
-https://api.drkleinservice.de/lead/{leadId}/dokument
+https://api.drkleinservice.de/vorgang/{vorgangId}/dokument
 ```
 
 ```json
