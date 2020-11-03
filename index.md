@@ -7,10 +7,6 @@ keywords:
 title: Dr.Klein Ratenkredit GmbH
 description: API Dokumentation für unsere Partner. Bei Interesse können Sie uns gerne kontaktieren.
 buttons:
-    - icon: github
-      content: GitHub Dokumentation
-      url: 'https://github.com/drklein-rk'
-      external_url: true
     - content: Kontakt
       url: 'mailto:info@drklein-rk.de'
       external_url: true
