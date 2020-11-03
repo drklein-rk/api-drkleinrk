@@ -19,30 +19,54 @@ Die Vorgang API dient zum Überleiten von Partner-, Tippgeber und Vorgangsdaten.
 
 ### Vorgang importieren
 
-Die Schnittstelle zum Vorgang import basiert auf den Import von Daten der [Schnittstelle von Europace](`https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/`).
-Das Format und die Struktur wurde für die Vorgangsdaten übernommen und um Partner-, Tippgeber- und Customdaten, sowie individuellen Kommentaren ergänzt.
+Die Schnittstelle zum Vorgang Import basiert auf den Import von Daten der <a href="Schnittstelle von Europace" target="_blank">https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/</a>.
+Das **Format** und die **Struktur** wurde für die **Vorgangsdaten** übernommen und um **Partner-**, **Tippgeber-** und **Customdaten**, sowie individuellen **Kommentaren** ergänzt.
 
-Neue Vorgang werden per `HTTP POST` angelegt. Die URL für das Anlegen von einen Vorgang im Echtgeschäft ist:
+Ein neuer Vorgang wird per `HTTP POST` angelegt. 
 
-`https://api.drkleinservice.de/vorgang?environment=PRODUCTION`
+| Stage | Url |
+| :---- | --- |
+| production | `https://api.drkleinservice.de/vorgang?environment=PRODUCTION` |
+| development | `https://api.drkleinservice.de/vorgang` |
 
-Die URL für das Anlegen von einen Vorgang in der Testumgebung ist:
-`https://api.drkleinservice.de/vorgang`
 
 Die Daten werden als JSON Dokument im Body des `POST` Requests übermittelt. 
 Ein erfolgreicher Aufruf resultiert in einer Response mit dem HTTP Statuscode `201 CREATED`.
 
 ### Authentifizierung
 
-Die Authentifizierung erfolgt über ein API JWT Token.
+Die Authentifizierung erfolgt über [OAuth2](https://oauth.net/2/).
+
+Um einen Client zu registrieren brauchen wir die folgenden Daten:
+
+| Wert | Beschreibung |
+| :--- | ------------ |
+| email | E-Mail des Partners. |
+| name | Vor- und Zuname des Partners. |
+| telefonnummer | Telefonnummer des Partners. |
+| Organisation | Organisationsname des Partners. |
+
+Wende dich mit den Daten bitte an `info@drklein-rk.de` und nach einer Verifizierung unsererseits stellen wir dir eine `client-id` und ein `client-secret` zur Verfügung.
+
+Mit den `client credentials` und der Access token url: `https://api.drkleinservice.de/oauth2/token` bekommst du ein `access-token`. 
+Mit dem `access-token` als Bearer-Token und dem `scope: drkleinrk-api/vorgang:import` in der Anfrage kannst du somit einen Vorgang anlegen.
 
 ```
-Request-Header Name: X-Authentication
-Request Header Value: (jwt wird von Dr. Klein Support bereitgestellt)
+Request-Header Name: Authorization
+Request Header Value: Bearer {jwt}
 ```
 `401`, wenn die Authentifizierung fehlschlägt.
 
 ### Vorgang
+
+**Vorgang Daten**
+
+| Wert | Referenz zur Europace Dokumentation |
+| :--- | :---------------------------------- |
+| antragsteller1 | <a href="Schnittstelle von Europace" target="_blank">https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/#antragsteller</a> |
+| antragsteller2 | <a href="Schnittstelle von Europace" target="_blank">https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/#antragsteller</a> |
+| haushalt | <a href="Schnittstelle von Europace" target="_blank">https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/#haushalt</a> |
+| finanzbedarf | <a href="Schnittstelle von Europace" target="_blank">https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/#finanzbedarf</a> |
 
 **Partner Daten (partner)**
 
@@ -80,11 +104,11 @@ Request Header Value: (jwt wird von Dr. Klein Support bereitgestellt)
 **Request**
 
 ```text
-Request-Header Name: X-Authentication
-Request Header Value: xxx
+Request-Header Name: Authorization
+Request Header Value: Bearer {jwt}
 
 Request-Header Name: content-type
-Request Header Value: application/json;charset=utf-8
+Request Header Value: application/x-www-form-urlencoded
 
 POST
 https://api.drkleinservice.de/vorgang
@@ -92,19 +116,54 @@ https://api.drkleinservice.de/vorgang
 
 ```json
 {
-  "kundenbetreuer": {
-    "partnerId": "TEST"
-  },
   "antragsteller1": {
     "personendaten": {
       "vorname": "Max",
       "nachname": "Mustermann"
-     }
+     },
+    "wohnsituation": {
+      "anschrift": {
+        "strasse": "Musterstraße.",
+        "hausnummer": "41a",
+        "plz": "10713",
+        "ort": "Berlin",
+        "wohnhaftSeit": "2016-01-01"
+      },
+      "anzahlPersonenImHaushalt": 1,
+      "wohnart": "ZUR_MIETE"
+    }
+  },
+  "haushalt": {
+    "kontoverbindung": {
+      "iban": "DE98600100700160451700",
+      "gehoertZuAntragsteller": "ANTRAGSTELLER_1"
+    },
+    "ausgaben": {
+      "privateKrankenversicherungen": [
+        {
+          "betragMonatlich": 200.01,
+          "gehoertZuAntragsteller": "ANTRAGSTELLER_1"
+        }
+      ],
+      "mietausgaben": [
+        {
+          "betragMonatlich": 200.01,
+          "gehoertZuAntragsteller": "ANTRAGSTELLER_1"
+        }
+      ]
+    }
+  },
+  "finanzbedarf": {
+    "finanzierungszweck": "FREIE_VERWENDUNG",
+    "finanzierungswunsch": {
+      "kreditbetrag": 10000,
+      "laufzeitInMonaten": 24,
+      "ratenzahlungstermin": "MONATSENDE"
+    }
   },
   "partner": {
-    "vertriebsschluessel": "KOOPERATION_MIT_DRKLEIN",
-    "kundennummer": "143251ab",
-    "filialId": "123456"
+    "vertriebsschluessel": "KOOPERATION_MIT_DRKLEIN-RK",
+    "kundennummer": "143251ab"
   },
   "tippgeber": {
     "externeMitarbeiternummer": "078181726-121",
@@ -118,6 +177,10 @@ https://api.drkleinservice.de/vorgang
     {
       "key": "telefonTermin",
       "value": "2021-01-10 13:00:00"
+    },
+    {
+      "key": "filialId",
+      "value": "123123"
     }
   ],
   "kommentare": ["Max Mustermann hat 3 Kreditkarten."]
@@ -127,23 +190,22 @@ https://api.drkleinservice.de/vorgang
 **Response**
 ```json
 {
-  "vorgangUuid": "6e8627d4-1512-11eb-adc1-0242ac120002",
-  "crmKennung": "DK-AB1267",
+  "drkleinrkVorgangsnummer": "6e8627d4-1512-11eb-adc1-0242ac120002",
+  "europaceVorgangsnummer": "AB1234",
+  "crmKennung": "DKR-AB1267",
   "messages": []
 }
 ```
 
 | Wert | Datentyp | Beschreibung |
 | :--- | :------- | :----------- |
-| vorgangUuid | [String] | Uuid zum importierten Vorgang. |
-| crmKennung | [String] | Kennung für den Vorgang im Prozess. |
+| drkleinrkVorgangsnummer | [String] | Vorgangsnummer von der Dr. Klein RK GmbH zum neuen Vorgang. |
+| crmKennung | [String] | Kennung für den Finanzierungsberater im Prozess. |
+| europaceVorgangsnummer | [String] | Vorgangsnummer von Kreditsmart zum neuen Vorgang. |
 
-Der Bereich `kundenbetreuer` und `antragsteller1` ist genauso wie die [API von Europace](`https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/`)  aufgebaut. Neu ist der `tippgeber`, `data` und `kommentare` Bereich.
-
-Die Daten vom `kundenbetreuer` und vom `antragsteller1` werden 
-über die von Europace bereitgestellte API [KEX Vorgang Import API](`https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/`) an Kreditsmart übergeben. 
-Die `tippgeber` Daten werden für die Partnererstellung im Partnermanagment verwendet und die `kommentare`, um in der Ereignislasche von Kreditsmart den Finanzierungsberater weitere Informationen anzuzeigen.
-
+Die Daten zum Antragsteller, zum Haushalt und zum Finanzierungsbedarf werden 
+über die von Europace bereitgestellte API <a href="KEX Vorgang Import API" target="_blank">https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/</a>. an Kreditsmart übergeben. 
+Die Daten zum Tippgeber werden für die Partnererstellung im Partnermanagment verwendet und die Daten zu den Kommentaren, um in der Ereignislasche von Kreditsmart den Finanzierungsberater weitere Informationen anzuzeigen.
 
 ### Begfriffsklärung
 

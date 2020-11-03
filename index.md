@@ -28,8 +28,4 @@ grid_navigation:
       excerpt: Die Vorgang Import API dient zum Überleiten von Partner-, Tippgeber und Vorgangsdaten.
       cta: Weiterlesen
       url: 'vorgangapi'
-    - title: Dokument Import API
-      excerpt: Die Dokument Import API ermöglicht das Importieren von einen maximal 10 MB großen Dokument zu einen bestehenden Vorgang.
-      cta: Weiterlesen
-      url: 'dokumentapi'
 ---
