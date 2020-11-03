@@ -35,7 +35,7 @@ Ein erfolgreicher Aufruf resultiert in einer Response mit dem HTTP Statuscode `2
 
 ### Authentifizierung
 
-Die Authentifizierung erfolgt über [OAuth2](https://oauth.net/2/).
+Die Authentifizierung erfolgt über [OAuth2](https://oauth.net/2/){:target="_blank"}.
 
 Um einen Client zu registrieren brauchen wir die folgenden Daten:
 
