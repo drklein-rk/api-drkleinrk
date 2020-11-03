@@ -19,7 +19,7 @@ Die Vorgang API dient zum Überleiten von Partner-, Tippgeber und Vorgangsdaten.
 
 ### Vorgang importieren
 
-Die Schnittstelle zum Vorgang Import basiert auf den Import von Daten der <a href="Schnittstelle von Europace" target="_blank">https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/</a>.
+Die Schnittstelle zum Vorgang Import basiert auf den Import von Daten der [Schnittstelle von Europace](https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api).
 Das **Format** und die **Struktur** wurde für die **Vorgangsdaten** übernommen und um **Partner-**, **Tippgeber-** und **Customdaten**, sowie individuellen **Kommentaren** ergänzt.
 
 Ein neuer Vorgang wird per `HTTP POST` angelegt. 
