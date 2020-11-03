@@ -63,10 +63,10 @@ Request Header Value: Bearer {jwt}
 
 | Wert | Referenz zur Europace Dokumentation |
 | :--- | :---------------------------------- |
-| antragsteller1 | <a href="Schnittstelle von Europace" target="_blank">https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/#antragsteller</a> |
-| antragsteller2 | <a href="Schnittstelle von Europace" target="_blank">https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/#antragsteller</a> |
-| haushalt | <a href="Schnittstelle von Europace" target="_blank">https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/#haushalt</a> |
-| finanzbedarf | <a href="Schnittstelle von Europace" target="_blank">https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/#finanzbedarf</a> |
+| antragsteller1 | [Antragsteller](>https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/#antragsteller) |
+| antragsteller2 | [Antragsteller](>https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/#antragsteller) |
+| haushalt | [Haushalt](>https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/#haushalt) |
+| finanzbedarf | [Finanzbedarf](>https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/#finanzbedarf) |
 
 **Partner Daten (partner)**
 
@@ -204,7 +204,7 @@ https://api.drkleinservice.de/vorgang
 | europaceVorgangsnummer | [String] | Vorgangsnummer von Kreditsmart zum neuen Vorgang. |
 
 Die Daten zum Antragsteller, zum Haushalt und zum Finanzierungsbedarf werden 
-über die von Europace bereitgestellte API <a href="KEX Vorgang Import API" target="_blank">https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/</a>. an Kreditsmart übergeben. 
+über die von Europace bereitgestellte API [KEX-Import API](https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api). an Kreditsmart übergeben. 
 Die Daten zum Tippgeber werden für die Partnererstellung im Partnermanagment verwendet und die Daten zu den Kommentaren, um in der Ereignislasche von Kreditsmart den Finanzierungsberater weitere Informationen anzuzeigen.
 
 ### Begfriffsklärung
