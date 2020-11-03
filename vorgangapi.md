@@ -19,7 +19,7 @@ Die Vorgang API dient zum Überleiten von Partner-, Tippgeber und Vorgangsdaten.
 
 ### Vorgang importieren
 
-Die Schnittstelle zum Vorgang Import basiert auf den Import von Daten der [Schnittstelle von Europace](https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api).
+Die Schnittstelle zum Vorgang Import basiert auf den Import von Daten der [Schnittstelle von Europace](https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api){:target="_blank"}.
 Das **Format** und die **Struktur** wurde für die **Vorgangsdaten** übernommen und um **Partner-**, **Tippgeber-** und **Customdaten**, sowie individuellen **Kommentaren** ergänzt.
 
 Ein neuer Vorgang wird per `HTTP POST` angelegt. 
@@ -63,10 +63,10 @@ Request Header Value: Bearer {jwt}
 
 | Wert | Referenz zur Europace Dokumentation |
 | :--- | :---------------------------------- |
-| antragsteller1 | [Antragsteller](>https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/#antragsteller) |
-| antragsteller2 | [Antragsteller](>https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/#antragsteller) |
-| haushalt | [Haushalt](>https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/#haushalt) |
-| finanzbedarf | [Finanzbedarf](>https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/#finanzbedarf) |
+| antragsteller1 | [Antragsteller](https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/#antragsteller){:target="_blank"} |
+| antragsteller2 | [Antragsteller](https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/#antragsteller){:target="_blank"} |
+| haushalt | [Haushalt](https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/#haushalt){:target="_blank"} |
+| finanzbedarf | [Finanzbedarf](https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/#finanzbedarf){:target="_blank"} |
 
 **Partner Daten (partner)**
 
@@ -204,7 +204,7 @@ https://api.drkleinservice.de/vorgang
 | europaceVorgangsnummer | [String] | Vorgangsnummer von Kreditsmart zum neuen Vorgang. |
 
 Die Daten zum Antragsteller, zum Haushalt und zum Finanzierungsbedarf werden 
-über die von Europace bereitgestellte API [KEX-Import API](https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api). an Kreditsmart übergeben. 
+über die von Europace bereitgestellte API [KEX-Import API](https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api){:target="_blank"}. an Kreditsmart übergeben. 
 Die Daten zum Tippgeber werden für die Partnererstellung im Partnermanagment verwendet und die Daten zu den Kommentaren, um in der Ereignislasche von Kreditsmart den Finanzierungsberater weitere Informationen anzuzeigen.
 
 ### Begfriffsklärung
