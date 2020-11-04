@@ -204,7 +204,7 @@ https://api.drkleinservice.de/vorgang
 | europaceVorgangsnummer | [String] | Vorgangsnummer von Kreditsmart zum neuen Vorgang. |
 
 Die Daten zum Antragsteller, zum Haushalt und zum Finanzierungsbedarf werden 
-über die von Europace bereitgestellte API [KEX-Import API](https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api){:target="_blank"}. an Kreditsmart übergeben. 
+über die von Europace bereitgestellte API [KEX-Import API](https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api){:target="_blank"} an Kreditsmart übergeben. 
 Die Daten zum Tippgeber werden für die Partnererstellung im Partnermanagment verwendet und die Daten zu den Kommentaren, um in der Ereignislasche von Kreditsmart den Finanzierungsberater weitere Informationen anzuzeigen.
 
 ### Begfriffsklärung

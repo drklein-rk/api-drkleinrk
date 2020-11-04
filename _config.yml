@@ -9,23 +9,14 @@ doks:
         nav:
             - item_name: API Dokumentation
               item_url: 'https://developer.drkleinservice.de/'
-            - item_name: FAQ
-              item_url: '#'
-            - item_name: Nutzungsbedingungen
-              item_url: '#'
     footer:
         content:
             logo:
                 text: Dr. Klein Ratenkredit
                 image:
             copyright: Copyright &copy; 2020 - Dr. Klein Ratenkredit GmbH<br>All rights reserved.
-        social_list:
-            - network_name: twitter
-              profile_url: '#'
     google_analytics:
         tracking_code: # Add your Google Analytics tracking code to activate Google Analytics
-    comments:
-        disqus_forum_shortname: # Add your disqus forum shortname to activate comments
 
 # SASS settings
 sass:
