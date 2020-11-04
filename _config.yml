@@ -16,7 +16,7 @@ doks:
                 image:
             copyright: Copyright &copy; 2020 - Dr. Klein Ratenkredit GmbH<br>All rights reserved.
     google_analytics:
-        tracking_code: # Add your Google Analytics tracking code to activate Google Analytics
+        tracking_code: UA-157147203-22
 
 # SASS settings
 sass:
