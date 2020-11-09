@@ -44,7 +44,7 @@ Um einen Client zu registrieren brauchen wir die folgenden Daten:
 | email | E-Mail des Partners. |
 | name | Vor- und Zuname des Partners. |
 | telefonnummer | Telefonnummer des Partners. |
-| Organisation | Organisationsname des Partners. |
+| organisation | Organisationsname des Partners. |
 
 Wende dich mit den Daten bitte an den [Dr. Klein Ratenkredit Support](mailto:info@drklein-rk.de?subject=API%20Credentials%20Anfrage) und nach einer Verifizierung unsererseits stellen wir dir eine `client-id` und ein `client-secret` zur Verfügung.
 
@@ -63,24 +63,11 @@ Request Header Value: Bearer {jwt}
 
 | Wert | Referenz zur Europace Dokumentation |
 | :--- | :---------------------------------- |
+| leadquelle | [Leadquelle](https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/#vorgang){:target="_blank"} |
 | antragsteller1 | [Antragsteller](https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/#antragsteller){:target="_blank"} |
 | antragsteller2 | [Antragsteller](https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/#antragsteller){:target="_blank"} |
 | haushalt | [Haushalt](https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/#haushalt){:target="_blank"} |
 | finanzbedarf | [Finanzbedarf](https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/#finanzbedarf){:target="_blank"} |
-
-**Partner Daten (partner)**
-
-| Wert | Datentyp | Beschreibung |
-| :--- | :------- | :----------- |
-| vertriebsschlüssel | String | Der Vertriebsschlüssel des Partners. |
-| kundenummer | String | Die Kundennummer des Kreditinteressenten. |
-
-**Custom Daten (custom)**
-
-| Wert | Datentyp | Beschreibung |
-| :--- | :------- | :----------- |
-| key | String | Der name vom `key`. |
-| value | various types| Der `key` kann den Datentyp `boolean`, `integer`, `date`, `string` haben. |
 
 **Tippgeber Daten (tippgeber)**
 
@@ -99,6 +86,21 @@ Request Header Value: Bearer {jwt}
 | :--- | :------- | :----------- |
 | kommentare | [String] | Kommentare zum Vorgang. |
 
+**Partner Daten (partner)**
+
+| Wert | Datentyp | Beschreibung |
+| :--- | :------- | :----------- |
+| vertriebsschlüssel | String | Der Vertriebsschlüssel des Partners. |
+| kundenummer | String | Die Kundennummer des Kreditinteressenten. |
+| custom | Array | Benutzerdefinierte Werte die nicht in dem Standard dieser Schnittstelle enthalten sind. |
+
+**Custom Daten (custom)**
+
+| Wert | Datentyp | Beschreibung |
+| :--- | :------- | :----------- |
+| key | String | Der name vom `key`. |
+| value | various types| Der `key` kann den Datentyp `boolean`, `integer`, `date`, `string` haben. |
+
 ### Beispiel
 
 **Request**
@@ -116,54 +118,53 @@ https://api.drkleinservice.de/vorgang
 
 ```json
 {
-  "antragsteller1": {
-    "personendaten": {
-      "vorname": "Max",
-      "nachname": "Mustermann"
-     },
-    "wohnsituation": {
-      "anschrift": {
-        "strasse": "Musterstraße.",
-        "hausnummer": "41a",
-        "plz": "10713",
-        "ort": "Berlin",
-        "wohnhaftSeit": "2016-01-01"
+  "vorgang": {
+    "leadquelle": "Bank im Ventil",
+    "antragsteller1": {
+      "personendaten": {
+        "vorname": "Max",
+        "nachname": "Mustermann"
       },
-      "anzahlPersonenImHaushalt": 1,
-      "wohnart": "ZUR_MIETE"
-    }
-  },
-  "haushalt": {
-    "kontoverbindung": {
-      "iban": "DE98600100700160451700",
-      "gehoertZuAntragsteller": "ANTRAGSTELLER_1"
+      "wohnsituation": {
+        "anschrift": {
+          "strasse": "Musterstraße.",
+          "hausnummer": "41a",
+          "plz": "10713",
+          "ort": "Berlin",
+          "wohnhaftSeit": "2016-01-01"
+        },
+        "anzahlPersonenImHaushalt": 1,
+        "wohnart": "ZUR_MIETE"
+      }
     },
-    "ausgaben": {
-      "privateKrankenversicherungen": [
-        {
-          "betragMonatlich": 200.01,
-          "gehoertZuAntragsteller": "ANTRAGSTELLER_1"
-        }
-      ],
-      "mietausgaben": [
-        {
-          "betragMonatlich": 200.01,
-          "gehoertZuAntragsteller": "ANTRAGSTELLER_1"
-        }
-      ]
+    "haushalt": {
+      "kontoverbindung": {
+        "iban": "DE98600100700160451700",
+        "gehoertZuAntragsteller": "ANTRAGSTELLER_1"
+      },
+      "ausgaben": {
+        "privateKrankenversicherungen": [
+          {
+            "betragMonatlich": 200.01,
+            "gehoertZuAntragsteller": "ANTRAGSTELLER_1"
+          }
+        ],
+        "mietausgaben": [
+          {
+            "betragMonatlich": 200.01,
+            "gehoertZuAntragsteller": "ANTRAGSTELLER_1"
+          }
+        ]
+      }
+    },
+    "finanzbedarf": {
+      "finanzierungszweck": "FREIE_VERWENDUNG",
+      "finanzierungswunsch": {
+        "kreditbetrag": 10000,
+        "laufzeitInMonaten": 24,
+        "ratenzahlungstermin": "MONATSENDE"
+      }
     }
-  },
-  "finanzbedarf": {
-    "finanzierungszweck": "FREIE_VERWENDUNG",
-    "finanzierungswunsch": {
-      "kreditbetrag": 10000,
-      "laufzeitInMonaten": 24,
-      "ratenzahlungstermin": "MONATSENDE"
-    }
-  },
-  "partner": {
-    "vertriebsschluessel": "KOOPERATION_MIT_DRKLEIN-RK",
-    "kundennummer": "143251ab"
   },
   "tippgeber": {
     "externeMitarbeiternummer": "078181726-121",
@@ -173,17 +174,23 @@ https://api.drkleinservice.de/vorgang
     "telefon": "0612-298-xxxx",
     "email": "max.mustermann@partner.de"
   },
-  "custom": [
-    {
-      "key": "telefonTermin",
-      "value": "2021-01-10 13:00:00"
-    },
-    {
-      "key": "filialId",
-      "value": "123123"
-    }
+  "kommentare": [
+    "Max Mustermann hat 3 Kreditkarten."
   ],
-  "kommentare": ["Max Mustermann hat 3 Kreditkarten."]
+  "partner": {
+    "vertriebsschluessel": "KOOPERATION_MIT_DRKLEIN-RK",
+    "kundennummer": "143251ab",
+    "custom": [
+      {
+        "key": "telefonTermin",
+        "value": "2021-01-10 13:00:00"
+      },
+      {
+        "key": "filialId",
+        "value": "123123"
+      }
+    ]
+  }
 }
 ```
 
