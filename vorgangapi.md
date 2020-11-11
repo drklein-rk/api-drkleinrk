@@ -26,8 +26,8 @@ Ein neuer Vorgang wird per `HTTP POST` angelegt.
 
 | Stage | Url |
 | :---- | --- |
-| production | `https://api.drkleinservice.de/vorgang?environment=PRODUCTION` |
-| development | `https://api.drkleinservice.de/vorgang` |
+| production | `https://api.drkleinservice.de/vorgang` |
+| development | `https://testapi.drkleinservice.de/vorgang` |
 
 
 Die Daten werden als JSON Dokument im Body des `POST` Requests übermittelt. 
@@ -90,8 +90,8 @@ Request Header Value: Bearer {jwt}
 
 | Wert | Datentyp | Beschreibung |
 | :--- | :------- | :----------- |
-| vertriebsschlüssel | String | Der Vertriebsschlüssel des Partners. |
-| kundenummer | String | Die Kundennummer des Kreditinteressenten. |
+| vertriebsschluessel | String | Der Vertriebsschlüssel des Partners. |
+| kundennummer | String | Die Kundennummer des Kreditinteressenten. |
 | custom | Array | Benutzerdefinierte Werte die nicht in dem Standard dieser Schnittstelle enthalten sind. |
 
 **Custom Daten (custom)**
