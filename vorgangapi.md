@@ -48,7 +48,7 @@ Um einen Client zu registrieren brauchen wir die folgenden Daten:
 
 Wende dich mit den Daten bitte an den [Dr. Klein Ratenkredit Support](mailto:info@drklein-rk.de?subject=API%20Credentials%20Anfrage) und nach einer Verifizierung unsererseits stellen wir dir eine `client-id` und ein `client-secret` zur Verfügung.
 
-Mit den `client credentials` und der Access token url: `https://api.drkleinservice.de/oauth2/token` bekommst du ein `access-token`. 
+Mit den `client credentials` und der Access token url: `https://auth.drkleinservice.de/oauth2/token` bekommst du ein `access-token`. 
 Mit dem `access-token` als Bearer-Token und dem `scope: drkleinrk-api/vorgang:import` in der Anfrage kannst du somit einen Vorgang anlegen.
 
 ```
@@ -68,6 +68,7 @@ Request Header Value: Bearer {jwt}
 | antragsteller2 | [Antragsteller](https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/#antragsteller){:target="_blank"} |
 | haushalt | [Haushalt](https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/#haushalt){:target="_blank"} |
 | finanzbedarf | [Finanzbedarf](https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/#finanzbedarf){:target="_blank"} |
+| kommentare | [kommentare](https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api/#vorgang){:target="_blank"} |
 
 **Tippgeber Daten (tippgeber)**
 
@@ -80,18 +81,10 @@ Request Header Value: Bearer {jwt}
 | telefon | String | Die Telefonnummer des Tippgebers. |
 | email | String | Die Email des Tippgebers. |
 
-**Kommentare (kommentare)**
-
-| Wert | Datentyp | Beschreibung |
-| :--- | :------- | :----------- |
-| kommentare | [String] | Kommentare zum Vorgang. |
-
 **Partner Daten (partner)**
 
 | Wert | Datentyp | Beschreibung |
 | :--- | :------- | :----------- |
-| vertriebsschluessel | String | Der Vertriebsschlüssel des Partners. |
-| kundennummer | String | Die Kundennummer des Kreditinteressenten. |
 | custom | Array | Benutzerdefinierte Werte die nicht in dem Standard dieser Schnittstelle enthalten sind. |
 
 **Custom Daten (custom)**
@@ -164,7 +157,10 @@ https://api.drkleinservice.de/vorgang
         "laufzeitInMonaten": 24,
         "ratenzahlungstermin": "MONATSENDE"
       }
-    }
+    },
+    "kommentare": [
+      "Max Mustermann hat 3 Kreditkarten."
+    ]
   },
   "tippgeber": {
     "externeMitarbeiternummer": "078181726-121",
@@ -174,12 +170,7 @@ https://api.drkleinservice.de/vorgang
     "telefon": "0612-298-xxxx",
     "email": "max.mustermann@partner.de"
   },
-  "kommentare": [
-    "Max Mustermann hat 3 Kreditkarten."
-  ],
   "partner": {
-    "vertriebsschluessel": "KOOPERATION_MIT_DRKLEIN-RK",
-    "kundennummer": "143251ab",
     "custom": [
       {
         "key": "telefonTermin",
@@ -188,6 +179,14 @@ https://api.drkleinservice.de/vorgang
       {
         "key": "filialId",
         "value": "123123"
+      },
+      {
+        "key": "kundennummer",
+        "value": "143251ab"
+      },
+      {
+        "key": "vertriebsschluessel",
+        "value": "KOOPERATION_MIT_DRKLEIN-RK"
       }
     ]
   }
@@ -197,7 +196,6 @@ https://api.drkleinservice.de/vorgang
 **Response**
 ```json
 {
-  "drkleinrkVorgangsnummer": "6e8627d4-1512-11eb-adc1-0242ac120002",
   "europaceVorgangsnummer": "AB1234",
   "crmKennung": "DKR-AB1267",
   "messages": []
@@ -206,9 +204,8 @@ https://api.drkleinservice.de/vorgang
 
 | Wert | Datentyp | Beschreibung |
 | :--- | :------- | :----------- |
-| drkleinrkVorgangsnummer | [String] | Vorgangsnummer von der Dr. Klein RK GmbH zum neuen Vorgang. |
-| crmKennung | [String] | Kennung für den Finanzierungsberater im Prozess. |
 | europaceVorgangsnummer | [String] | Vorgangsnummer von Kreditsmart zum neuen Vorgang. |
+| crmKennung | [String] | Kennung für den Finanzierungsberater im Prozess. |
 
 Die Daten zum Antragsteller, zum Haushalt und zum Finanzierungsbedarf werden 
 über die von Europace bereitgestellte API [KEX-Import API](https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api){:target="_blank"} an Kreditsmart übergeben. 
