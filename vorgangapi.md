@@ -48,7 +48,7 @@ Um einen Client zu registrieren brauchen wir die folgenden Daten:
 
 Wende dich mit den Daten bitte an den [Dr. Klein Ratenkredit Support](mailto:info@drklein-rk.de?subject=API%20Credentials%20Anfrage) und nach einer Verifizierung unsererseits stellen wir dir eine `client-id` und ein `client-secret` zur Verfügung.
 
-Mit den `client credentials` und der Access token url: `https://auth.drkleinservice.de/oauth2/token` bekommst du ein `access-token`. 
+Mit den `client credentials` und der Access token url: `https://oauth.drkleinservice.de/oauth2/token` bekommst du ein `access-token`. 
 Mit dem `access-token` als Bearer-Token und dem `scope: drkleinrk-api/vorgang:import` in der Anfrage kannst du somit einen Vorgang anlegen.
 
 ```
