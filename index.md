@@ -8,7 +8,7 @@ title: Dr.Klein Ratenkredit GmbH
 description: API Dokumentation für unsere Partner. Bei Interesse können Sie uns gerne kontaktieren.
 buttons:
     - content: Kontakt
-      url: 'mailto:info@drklein-rk.de'
+      url: 'mailto:dev@drklein.de'
       external_url: true
       
 # Author box

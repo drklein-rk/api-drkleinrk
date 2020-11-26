@@ -92,7 +92,7 @@ Request Header Value: Bearer {jwt}
 | Wert | Datentyp | Beschreibung |
 | :--- | :------- | :----------- |
 | key | String | Der name vom `key`. |
-| value | various types| Der `key` kann den Datentyp `boolean`, `integer`, `date`, `string` haben. |
+| value | various types| Der `key` kann den Datentyp `boolean`, `number`, `Date (ISO 8601)`, `string` haben. |
 
 ### Beispiel
 
