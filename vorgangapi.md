@@ -94,6 +94,14 @@ Request Header Value: Bearer {jwt}
 | key | String | Der name vom `key`. |
 | value | various types| Der `key` kann den Datentyp `boolean`, `number`, `Date (ISO 8601)`, `string` haben. |
 
+**Pflichtfelder**
+| Wert | Datentyp | Beschreibung |
+| :--- | :------- | :----------- |
+| vorgang.antragsteller1.personendaten.geburtsdatum | String | Das Geburtsdatum vom `antragsteller1`. |
+| vorgang.antragsteller1.personendaten.email | String | Die E-Mail vom `antragsteller1`. |
+| vorgang.antragsteller2.personendaten.geburtsdatum | String | Das Geburtsdatum vom `antragsteller2`. |
+| vorgang.antragsteller2.personendaten.email | String | Die E-Mail vom `antragsteller2`. |
+
 ### Beispiel
 
 **Request**
