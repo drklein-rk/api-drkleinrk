@@ -85,14 +85,14 @@ Request Header Value: Bearer {jwt}
 
 | Wert | Datentyp | Beschreibung |
 | :--- | :------- | :----------- |
-| custom | Array | Benutzerdefinierte Werte die nicht in dem Standard dieser Schnittstelle enthalten sind. |
+| custom | Object | Benutzerdefinierte Werte die nicht in dem Standard dieser Schnittstelle enthalten sind. |
 
 **Custom Daten (custom)**
 
 | Wert | Datentyp | Beschreibung |
 | :--- | :------- | :----------- |
 | key | String | Der name vom `key`. |
-| value | various types| Der `key` kann den Datentyp `boolean`, `number`, `Date (ISO 8601)`, `string` haben. |
+| value | various types| Das `value` kann den Datentyp `boolean`, `number`, `Date (ISO 8601)`, `string` haben. |
 
 **Pflichtfelder**
 | Wert | Datentyp | Beschreibung |
@@ -179,24 +179,12 @@ https://api.drkleinservice.de/vorgang
     "email": "max.mustermann@partner.de"
   },
   "partner": {
-    "custom": [
-      {
-        "key": "telefonTermin",
-        "value": "2021-01-10 13:00:00"
-      },
-      {
-        "key": "filialId",
-        "value": "123123"
-      },
-      {
-        "key": "kundennummer",
-        "value": "143251ab"
-      },
-      {
-        "key": "vertriebsschluessel",
-        "value": "KOOPERATION_MIT_DRKLEIN-RK"
+    "custom": {
+        "telefonTermin": "2021-01-10 13:00:00",
+        "filialId": "123123",
+        "kundennummer": "143251ab",
+        "vertriebsschluessel": "KOOPERATION_MIT_DRKLEIN",
       }
-    ]
   }
 }
 ```
@@ -205,15 +193,14 @@ https://api.drkleinservice.de/vorgang
 ```json
 {
   "europaceVorgangsnummer": "AB1234",
-  "crmKennung": "DKR-AB1267",
   "messages": []
 }
 ```
 
 | Wert | Datentyp | Beschreibung |
 | :--- | :------- | :----------- |
-| europaceVorgangsnummer | [String] | Vorgangsnummer von Kreditsmart zum neuen Vorgang. |
-| crmKennung | [String] | Kennung für den Finanzierungsberater im Prozess. |
+| europaceVorgangsnummer | String | Vorgangsnummer von Kreditsmart zum neuen Vorgang. |
+| messages | [String] | Hinweise zum Import des Vorgangs. |
 
 Die Daten zum Antragsteller, zum Haushalt und zum Finanzierungsbedarf werden 
 über die von Europace bereitgestellte API [KEX-Import API](https://docs.api.europace.de/privatkredit/vorgaenge/kex-vorgang-import-api){:target="_blank"} an Kreditsmart übergeben. 
