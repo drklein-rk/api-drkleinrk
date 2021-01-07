@@ -97,6 +97,7 @@ Request Header Value: Bearer {jwt}
 **Pflichtfelder**
 | Wert | Datentyp | Beschreibung |
 | :--- | :------- | :----------- |
+| vorgang.leadquelle | String | Bezeichnung des Leadgebers. |
 | vorgang.antragsteller1.personendaten.geburtsdatum | String | Das Geburtsdatum vom `antragsteller1`. |
 | vorgang.antragsteller1.personendaten.email | String | Die E-Mail vom `antragsteller1`. |
 | vorgang.antragsteller2.personendaten.geburtsdatum | String | Das Geburtsdatum vom `antragsteller2`. |
