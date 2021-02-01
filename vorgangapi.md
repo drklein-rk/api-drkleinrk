@@ -95,6 +95,7 @@ Request Header Value: Bearer {jwt}
 | value | various types| Das `value` kann den Datentyp `boolean`, `number`, `Date (ISO 8601)`, `string` haben. |
 
 **Pflichtfelder**
+
 | Wert | Datentyp | Beschreibung |
 | :--- | :------- | :----------- |
 | vorgang.leadquelle | String | Bezeichnung des Leadgebers. |
